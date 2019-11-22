@@ -17,7 +17,8 @@ install: true
 
 script:
   - echo TRAVIS_JDK_VERSION is  $TRAVIS_JDK_VERSION
-  - echo $IMAGE_NAME is $IMAGE_NAME
+  - echo IMAGE_NAME is $IMAGE_NAME
+  - env
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
