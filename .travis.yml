@@ -10,15 +10,13 @@ cache:
     - $HOME/.m2
 
 before_script:
-  - echo "哈哈哈哈哈哈哈"
-  - echo "$TRAVIS_JDK_VERSION"
-  - if [ "$TRAVIS_JDK_VERSION" == "openjdk8" ]; then export IMAGE_NAME="哈哈哈哈哈" ; fi
-  - if [ "$TRAVIS_JDK_VERSION" == "openjdk11" ]; then export IMAGE_NAME="啦啦啦啦啦" ; fi
+  - if [ "$TRAVIS_JDK_VERSION" == "openjdk8" ]; then export IMAGE_NAME="openjdk:8u232-jre-stretch" ; fi
+  - if [ "$TRAVIS_JDK_VERSION" == "openjdk11" ]; then export IMAGE_NAME="openjdk:11-jre-stretch" ; fi
 
 install: true
 
 script:
-  - echo TRAVIS_JDK_VERSION is  $TRAVIS_JDK_VERSION
+  - echo 啦啦啦啦啦 TRAVIS_JDK_VERSION is  $TRAVIS_JDK_VERSION
   - echo IMAGE_NAME is $IMAGE_NAME
   - env
 
