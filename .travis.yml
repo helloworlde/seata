@@ -3,20 +3,21 @@ sudo: false # faster builds
 
 jdk:
   - openjdk11
-    - env IMAGE_NAME=openjdk:11-jre-stretch
   - openjdk8
-    - env IMAGE_NAME=openjdk:8u232-jre-stretch
+
 cache:
   directories:
     - $HOME/.m2
 
+before_script:
+  - if $TRAVIS_JDK_VERSION == "openjdk8" then export IMAGE_NAME=openjdk:8u232-jre-stretch
+  - if $TRAVIS_JDK_VERSION == "openjdk11" then export IMAGE_NAME=openjdk:11-jre-stretch
+
 install: true
 
 script:
-  - if [ "$TRAVIS_BRANCH" == "develop" ] && [ "$TRAVIS_PULL_REQUEST" == false ]; then
-     echo $IMAGE_NAME;
-    else
-     echo $IMAGE_NAME;
-    fi
+  - echo $TRAVIS_JDK_VERSION
+  - echo $IMAGE_NAME
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
