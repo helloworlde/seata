@@ -3,10 +3,9 @@ sudo: false # faster builds
 
 jdk:
   - openjdk11
+    - env IMAGE_NAME=openjdk:11-jre-stretch
   - openjdk8
-env:
-  - IMAGE_NAME=openjdk:11-jre-stretch
-  - IMAGE_NAME=openjdk:8u232-jre-stretch
+    - env IMAGE_NAME=openjdk:8u232-jre-stretch
 cache:
   directories:
     - $HOME/.m2
