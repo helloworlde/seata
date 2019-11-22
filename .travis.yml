@@ -15,9 +15,9 @@ install: true
 
 script:
   - if [ "$TRAVIS_BRANCH" == "develop" ] && [ "$TRAVIS_PULL_REQUEST" == false ]; then
-     echo $IMAGE_NAME
+     echo $IMAGE_NAME;
     else
-     echo $IMAGE_NAME
+     echo $IMAGE_NAME;
     fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)
