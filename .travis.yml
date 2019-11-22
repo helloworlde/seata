@@ -4,7 +4,9 @@ sudo: false # faster builds
 jdk:
   - openjdk11
   - openjdk8
-
+env:
+  - IMAGE_NAME=openjdk:11-jre-stretch
+  - IMAGE_NAME=openjdk:8u232-jre-stretch
 cache:
   directories:
     - $HOME/.m2
@@ -13,9 +15,9 @@ install: true
 
 script:
   - if [ "$TRAVIS_BRANCH" == "develop" ] && [ "$TRAVIS_PULL_REQUEST" == false ]; then
-    ./mvnw clean install -DskipTests=false -P image -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn;
+    echo "$IMAGE_NAME"
     else
-    ./mvnw clean install -DskipTests=false -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn;
+    echo "$IMAGE_NAME"
     fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)
