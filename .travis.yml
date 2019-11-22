@@ -10,8 +10,8 @@ cache:
     - $HOME/.m2
 
 before_script:
-  - echo $TRAVIS_JDK_VERSION
-  - env
+  - echo "哈哈哈哈哈哈哈"
+  - echo "$TRAVIS_JDK_VERSION"
   - if [ "$TRAVIS_JDK_VERSION" == "openjdk8" ]; then echo "java8"; fi
   - if [ "$TRAVIS_JDK_VERSION" == "openjdk11" ]; then  echo "java11"; fi
 
