@@ -85,7 +85,7 @@
         <apollo-client.version>1.1.0</apollo-client.version>
         <redis-clients.version>2.9.0</redis-clients.version>
         <eureka-clients.version>1.9.5</eureka-clients.version>
-        <consul-clients.version>1.4.2</consul-clients.version>
+        <consul-clients.version>1.4.5</consul-clients.version>
         <nacos-client.version>1.2.0</nacos-client.version>
         <etcd-client-v3.version>0.3.0</etcd-client-v3.version>
         <testcontainers.version>1.11.2</testcontainers.version>
