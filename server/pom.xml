@@ -180,7 +180,7 @@
                 <configuration>
                     <image>
                         <name>docker.io/hellowoodes/seata-server:latest</name>
-                        <publish>false</publish>
+                        <publish>true</publish>
                         <env>
                             <BP_JVM_VERSION>8.*</BP_JVM_VERSION>
                             <BPE_DELIM_JAVA_TOOL_OPTIONS xml:space="preserve"> </BPE_DELIM_JAVA_TOOL_OPTIONS>
