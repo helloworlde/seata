@@ -28,7 +28,7 @@
     <name>seata-server ${project.version}</name>
 
     <properties>
-        <spring-boot.version>2.3.10.RELEASE</spring-boot.version>
+        <spring-boot.version>2.5.1</spring-boot.version>
 
         <!-- logback-appenders -->
         <logstash-logback-encoder.version>6.5</logstash-logback-encoder.version>
@@ -171,6 +171,39 @@
                 <version>2.8.2</version>
                 <configuration>
                     <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <configuration>
+                    <image>
+                        <name>docker.io/seataio/seata-server:latest</name>
+                        <publish>false</publish>
+                        <env>
+                            <BP_JVM_VERSION>8.*</BP_JVM_VERSION>
+                            <BPE_DELIM_JAVA_TOOL_OPTIONS xml:space="preserve"> </BPE_DELIM_JAVA_TOOL_OPTIONS>
+                            <BPE_APPEND_JAVA_TOOL_OPTIONS>-Djava.security.egd=file:/dev/./urandom -XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport -XX:SurvivorRatio=10 -XX:-OmitStackTraceInFastThrow -XX:-UseAdaptiveSizePolicy -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=75 -Xloggc:/workspace/logs/seata_gc.log -verbose:gc -Dio.netty.leakDetectionLevel=advanced</BPE_APPEND_JAVA_TOOL_OPTIONS>
+                            <DPE_TZ>Asia/Shanghai</DPE_TZ>
+                        </env>
+                    </image>
+                    <layers>
+                        <enabled>true</enabled>
+                    </layers>
+                    <docker>
+                        <publishRegistry>
+                            <username>${REGISTRY_USERNAME}</username>
+                            <password>${REGISTRY_PASSWORD}</password>
+                            <url>https://hub.docker.com</url>
+                        </publishRegistry>
+                    </docker>
+                    <additionalProperties>
+                        <encoding.source>UTF-8</encoding.source>
+                        <encoding.reporting>UTF-8</encoding.reporting>
+                        <java.source>${maven.compiler.source}</java.source>
+                        <java.target>${maven.compiler.target}</java.target>
+                    </additionalProperties>
                 </configuration>
             </plugin>
         </plugins>
