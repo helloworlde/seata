@@ -179,7 +179,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <image>
-                        <name>docker.io/seataio/seata-server:latest</name>
+                        <name>docker.io/hellowoodes/seata-server:latest</name>
                         <publish>false</publish>
                         <env>
                             <BP_JVM_VERSION>8.*</BP_JVM_VERSION>
